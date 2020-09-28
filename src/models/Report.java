@@ -15,7 +15,7 @@ import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
-@Table
+@Table(name = "report")
 @NamedQueries({
     @NamedQuery(
             name = "getAllReports",
@@ -25,6 +25,14 @@ import javax.persistence.Table;
             name = "getReportsCount",
             query = "SELECT COUNT(r) FROM Report AS r"
             ),
+    @NamedQuery(
+            name = "getMyAllReports",
+            query = "SELECT r FROM Report AS r WHERE r.employee = :employee ORDER BY r.id DESC"
+            ),
+    @NamedQuery(
+            name = "getMyReportsCount",
+            query = "SELECT COUNT(r) FROM Report AS r WHERE r.employee = :employee"
+            )
 })
 @Entity
 public class Report {
@@ -52,6 +60,12 @@ public class Report {
 
     @Column(name = "updated_at", nullable = false)
     private Timestamp updated_at;
+
+    @Column(name = "attended_at", nullable = false)
+    private Timestamp attended_at;
+
+    @Column(name = "left_at", nullable = false)
+    private Timestamp left_at;
 
     public Integer getId() {
         return id;
@@ -107,6 +121,22 @@ public class Report {
 
     public void setUpdated_at(Timestamp updated_at) {
         this.updated_at = updated_at;
+    }
+
+    public Timestamp getAttended_at() {
+        return attended_at;
+    }
+
+    public void setAttended_at(Timestamp attended_at) {
+        this.attended_at = attended_at;
+    }
+
+    public Timestamp getLeft_at() {
+        return left_at;
+    }
+
+    public void setLeft_at(Timestamp left_at) {
+        this.left_at = left_at;
     }
 }
 
