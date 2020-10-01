@@ -15,7 +15,7 @@ import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
-@Table(name = "report")
+@Table(name = "reports")
 @NamedQueries({
     @NamedQuery(
             name = "getAllReports",
@@ -61,11 +61,11 @@ public class Report {
     @Column(name = "updated_at", nullable = false)
     private Timestamp updated_at;
 
-    @Column(name = "attended_at", nullable = false)
-    private Timestamp attended_at;
+    @Column(name = "attended_time", nullable = false)
+    private String attended_time;
 
-    @Column(name = "left_at", nullable = false)
-    private Timestamp left_at;
+    @Column(name = "left_time", nullable = false)
+    private String left_time;
 
     public Integer getId() {
         return id;
@@ -123,20 +123,20 @@ public class Report {
         this.updated_at = updated_at;
     }
 
-    public Timestamp getAttended_at() {
-        return attended_at;
+    public String getAttended_time() {
+        return attended_time;
     }
 
-    public void setAttended_at(Timestamp attended_at) {
-        this.attended_at = attended_at;
+    public void setAttended_time(String attended_time) {
+        this.attended_time = attended_time;
     }
 
-    public Timestamp getLeft_at() {
-        return left_at;
+    public String getLeft_time() {
+        return left_time;
     }
 
-    public void setLeft_at(Timestamp left_at) {
-        this.left_at = left_at;
+    public void setLeft_time(String left_time) {
+        this.left_time = left_time;
     }
 }
 

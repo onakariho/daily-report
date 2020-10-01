@@ -13,12 +13,12 @@
 <input type="date" name="report_date" value="<fmt:formatDate value='${report.report_date}' pattern='yyyy-MM-dd' />" />
 <br /><br />
 
-<label for="attended_at"></label><br />
-<input type="time" name="attended_at" autocomplete="on" />
+<label for="attended_time">出勤時間</label><br />
+<input type="time" name="attended_time" autocomplete="on">
 <br /><br />
 
-<label for="left_at"></label><br />
-<input type="time" name="left_at" autocomplete="on" />
+<label for="left_time">退勤時間</label><br />
+<input type="time" name="left_time" autocomplete="on">
 <br /><br />
 
 <label for="name">氏名</label><br />
